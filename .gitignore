@@ -1,0 +1,8 @@
+### Generals
+target/*
+
+### Idea
+.idea
+
+### Properties
+*-*.properties
