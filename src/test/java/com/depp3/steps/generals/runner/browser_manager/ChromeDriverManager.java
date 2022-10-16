@@ -1,6 +1,6 @@
 package com.depp3.steps.generals.runner.browser_manager;
 
-import com.depp3.steps.generals.ConfigProperties;
+import com.depp3.steps.generals.utils.ConfigProperties;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class ChromeDriverManager extends DriverManager{

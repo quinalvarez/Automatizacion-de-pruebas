@@ -1,4 +1,4 @@
-package com.depp3.steps.generals;
+package com.depp3.steps.generals.utils;
 
 import java.io.File;
 import java.io.FileInputStream;
