@@ -26,20 +26,32 @@ public class Hook {
         driver = driverManager.getDriver();
         driver.get(ConfigProperties.getProp("URL"));
         driver.manage().window().maximize();
-        driver.findElement(By.id(USERNAME)).sendKeys(ConfigProperties.getProp(DATA + USERNAME));
-        driver.findElement(By.id(PASSWORD)).sendKeys(ConfigProperties.getProp(DATA + PASSWORD));
-        driver.findElement(By.id("submit")).submit();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(8L));
-        driver.findElement(By.xpath("//*[@id=\"ZeusGestionWebzeus-655465539-overlays\"]/div[5]/div/div/div[3]/div/div/div[2]/div/div/div[2]/button")).click();
-        driver.findElement(By.xpath("//*[@id=\"UiHandler_validateConcurrence_ZFormWindow_btnCancelar\"]")).click();
+        login();
+        closePopUps();
     }
 
     @After()
     public void tearDown() {
-        //driverManager.quitDriver();
+        driverManager.quitDriver();
     }
 
     public static WebDriver getDriver() {
         return driver;
+    }
+
+    /**
+     * Logueo en la pagina con user y pass,
+     * con una espera de 8 seg.
+     */
+    private void login() {
+        driver.findElement(By.id(USERNAME)).sendKeys(ConfigProperties.getProp(DATA + USERNAME));
+        driver.findElement(By.id(PASSWORD)).sendKeys(ConfigProperties.getProp(DATA + PASSWORD));
+        driver.findElement(By.id("submit")).submit();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(8L));
+    }
+
+    private void closePopUps() {
+        driver.findElement(By.xpath("//*[@id=\"ZeusGestionWebzeus-655465539-overlays\"]/div[5]/div/div/div[3]/div/div/div[2]/div/div/div[2]/button")).click();
+        driver.findElement(By.xpath("//*[@id=\"UiHandler_validateConcurrence_ZFormWindow_btnCancelar\"]")).click();
     }
 }
