@@ -13,7 +13,7 @@ public class Driver {
 
     public static WebDriver getInstance() {
         if (Objects.isNull(instance)) {
-            System.setProperty("webdriver.chrome.driver", "src/test/resources/driver/chromedriver");
+            System.setProperty("webdriver.chrome.driver", ConfigProperties.getProp("driver.chrome.path"));
             instance = new ChromeDriver();
             instance.manage().window().maximize();
         }
