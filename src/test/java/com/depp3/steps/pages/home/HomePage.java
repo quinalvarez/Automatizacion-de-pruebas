@@ -13,11 +13,7 @@ public class HomePage extends BasePage {
         super(driver);
     }
 
-    public By getSaleModule() {
-        return saleModule;
-    }
-
-    public void saleModule() throws Exception {
+    public void clickSaleModule() throws Exception {
         try {
             click(saleModule);
             waitSeconds(1L);

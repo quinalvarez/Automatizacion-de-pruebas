@@ -11,7 +11,7 @@ public class ProductTest extends BaseTest {
     @When("^Ingresar al modulo productos$")
     public void articleModule() {
         try {
-            homePage.saleModule();
+            homePage.clickSaleModule();
             productPage.clickProductsModule();
         } catch (Exception e) {
             System.out.println(e.getMessage());
