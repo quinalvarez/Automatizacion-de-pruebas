@@ -46,11 +46,11 @@ public class BasePage {
         }
     }
 
-    public void waitSeconds(Long seconds) {
+    protected void waitSeconds(Long seconds) {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(seconds));
     }
 
-    public void sendKeys(By element, String text) throws Exception{
+    protected void sendKeys(By element, String text) throws Exception{
         try {
             driver.findElement(element).sendKeys(text);
         } catch (Exception e) {
